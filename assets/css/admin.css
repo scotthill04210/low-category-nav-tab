@@ -1,0 +1,18 @@
+.column-low_cnt_order {
+	width: 80px;
+}
+
+.low-cnt-order-handle {
+	cursor: move;
+	color: #787c82;
+	vertical-align: middle;
+}
+
+.low-cnt-order-handle:hover {
+	color: #1d2327;
+}
+
+.wp-list-table tbody tr.low-cnt-sort-placeholder {
+	height: 44px;
+	background: #f0f0f1;
+}

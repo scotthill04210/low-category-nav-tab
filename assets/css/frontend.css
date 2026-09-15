@@ -1,0 +1,222 @@
+.low-cnt-wrap {
+	--low-cnt-section-bg: #efeae0;
+	--low-cnt-tabbar-bg: #ffffff;
+	--low-cnt-active-tab-bg: #edece7;
+	--low-cnt-active-tab-text: #1a1a1a;
+	--low-cnt-inactive-tab-text: #767676;
+	--low-cnt-shift: 0px;
+	--low-cnt-gap: 20px;
+	box-sizing: border-box;
+	background: var(--low-cnt-section-bg);
+	padding: 8px 0 28px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.low-cnt-wrap *,
+.low-cnt-wrap *::before,
+.low-cnt-wrap *::after {
+	box-sizing: border-box;
+}
+
+.low-cnt-tabbar {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 2px;
+	width: max-content;
+	max-width: calc(100% - 32px);
+	margin: 0 16px 22px;
+	background: var(--low-cnt-tabbar-bg);
+	border-radius: 9999px;
+	padding: 5px 6px;
+	box-shadow: 0 1px 8px rgba(26, 26, 26, 0.06);
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+}
+
+.low-cnt-tabbar::-webkit-scrollbar {
+	display: none;
+}
+
+.low-cnt-tab {
+	appearance: none;
+	-webkit-appearance: none;
+	margin: 0;
+	border: 0;
+	background: transparent;
+	color: var(--low-cnt-inactive-tab-text);
+	font: inherit;
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+	line-height: 1.2;
+	padding: 8px 13px;
+	border-radius: 9999px;
+	cursor: pointer;
+	white-space: nowrap;
+	flex: 0 0 auto;
+}
+
+.low-cnt-tab:hover {
+	color: var(--low-cnt-active-tab-text);
+}
+
+.low-cnt-tab:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+.low-cnt-tab.is-active {
+	background: var(--low-cnt-active-tab-bg);
+	color: var(--low-cnt-active-tab-text);
+	font-weight: 700;
+}
+
+.low-cnt-viewport {
+	container-type: inline-size;
+	overflow: hidden;
+	padding-left: 16px;
+	width: 100%;
+}
+
+.low-cnt-track {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: stretch;
+	gap: var(--low-cnt-gap);
+	position: relative;
+	transform: translate3d(var(--low-cnt-shift), 0, 0);
+	transition: transform 0.55s cubic-bezier(0.22, 0.82, 0.2, 1);
+	will-change: transform;
+}
+
+.low-cnt-panel {
+	flex: 0 0 calc((100cqi - (var(--low-cnt-gap) * 2)) / 2.45);
+	width: calc((100cqi - (var(--low-cnt-gap) * 2)) / 2.45);
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	padding: 28px 30px;
+	min-height: 220px;
+	cursor: pointer;
+}
+
+.low-cnt-panel h3 {
+	margin: 0 0 12px;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.25;
+	color: inherit;
+}
+
+.low-cnt-body {
+	opacity: 0.92;
+	font-size: 14px;
+	line-height: 1.6;
+	flex: 1 1 auto;
+}
+
+.low-cnt-body > *:first-child {
+	margin-top: 0;
+}
+
+.low-cnt-body > *:last-child {
+	margin-bottom: 0;
+}
+
+.low-cnt-body p {
+	margin: 0 0 0.85em;
+}
+
+@media (max-width: 800px) {
+	.low-cnt-wrap {
+		padding: 16px 12px 24px;
+		overflow: visible;
+	}
+
+	.low-cnt-tabbar {
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 4px;
+		width: auto;
+		max-width: none;
+		margin: 0;
+		border-radius: 9999px;
+		padding: 6px 8px;
+		overflow: visible;
+	}
+
+	.low-cnt-tab {
+		width: auto;
+		text-align: center;
+		white-space: nowrap;
+		padding: 12px 22px;
+	}
+
+	.low-cnt-viewport {
+		padding-left: 0;
+		overflow: visible;
+		container-type: normal;
+	}
+
+	.low-cnt-track {
+		display: block;
+		transform: none !important;
+		transition: none;
+		gap: 0;
+		will-change: auto;
+	}
+
+	.low-cnt-panel {
+		display: none;
+		width: 100%;
+		flex: none;
+		min-height: 0;
+		cursor: default;
+		padding: 32px;
+		border-radius: 16px;
+		margin-top: 20px;
+		scroll-margin-top: 12px;
+	}
+
+	.low-cnt-panel.is-active {
+		display: block;
+	}
+}
+
+@media (max-width: 600px) {
+	.low-cnt-tabbar {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: stretch;
+		border-radius: 16px;
+		padding: 8px;
+		gap: 6px;
+	}
+
+	.low-cnt-tab {
+		width: 100%;
+		white-space: normal;
+		padding: 14px 16px;
+	}
+
+	.low-cnt-panel {
+		padding: 20px;
+		border-radius: 14px;
+		margin-top: 16px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.low-cnt-track {
+		transition: none;
+	}
+}
