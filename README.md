@@ -1,6 +1,6 @@
 # LOW Category Nav Tab
 
-WordPress plugin for a membership-category tab UI: a pill-shaped tab bar and colored content cards. Built for [Southeast Propane Alliance](https://southeastpropane.org/) style layouts.
+WordPress plugin for a category tab UI: a pill-shaped tab bar and colored content cards.
 
 **Version 1.1.0** · Author: Scott Hill
 
